@@ -1,0 +1,32 @@
+<head>
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <p>Guida<p>
+    <p>Visualizza i dati in una data: "Mostra < categoria > in < data >"</p>
+    <p>Visualizza i dati in un intervallo di tempo: "Mostra < categoria > tra < data di inizio > e < data di fine >"</p>
+    <p>Visualizza lista di categorie: "Mostra categorie"</p>
+    <p>Formato data: YYYY-MM-DD</p>
+    <form action="" method="post">
+        <input type="text" name="message" placeholder="Scrivi un messaggio" value="{{ request.form.message }}" style="width: 20%;">
+        <input type="submit" value="Invia">
+    </form>
+    {% if answer %}
+        <p>{{ answer }}</p>
+        {% if values %}
+            <table style="margin-left: auto; margin-right: auto;"></table>
+                <tr>
+                    <th>Data e ora</th>
+                    <th>{{ category }}</th>
+                </tr>
+                {% for value in values %}
+                    <tr>
+                        <td>{{ value[0] }}</td>
+                        <td>{{ value[1] }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+    {% endif %}
+</body>

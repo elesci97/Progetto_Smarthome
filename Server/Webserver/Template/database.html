@@ -1,0 +1,43 @@
+<head>
+    <title>Database</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    {% if start_id %}
+        <p>Righe da {{ start_id }} a {{ end_id }} ({{ totalIDs }} righe totali)</p>
+        <form action="" method="POST">
+            <select name="ids">
+                {% for id in ids %}
+                    <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Visualizza">
+        </form>
+    {% endif %}
+    <table>
+        <thead>
+            {% if data %}
+            <tr>
+                {% for category in categories %}
+                    <th>{{ category }}</th>
+                {% endfor %}        
+            </tr>
+            {% endif %}
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            {% if error %}
+            <p style="color:red">{{error}}</p>
+            {% endif %}
+        </tbody>
+    </table>
+    {% if start_id %}
+        <p>Righe da {{ start_id }} a {{ end_id }} ({{ totalIDs }} righe totali)</p>
+    {% endif %}
+</body>

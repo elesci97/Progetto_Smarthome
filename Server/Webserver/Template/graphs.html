@@ -1,0 +1,63 @@
+<head>
+    <title>Grafici</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Grafici</h1>
+    <form action="" method="POST">
+        <select name="start_date">
+            <option value="">Data di inizio</option>
+            {% for date in dates %}
+                <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+        <select name="start_hour">
+            <option value="">Tutto il giorno</option>
+            {% for hour in hours %}
+                <option value="{{ hour }}">{{ hour }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select name="end_date">
+            <option value="">Data di fine</option>
+            {% for date in dates %}
+                <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+        <select name="end_hour">
+            <option value="">Tutto il giorno</option>
+            {% for hour in hours %}
+                <option value="{{ hour }}">{{ hour }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select name="category">
+            <option value="">Categoria</option>
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input class="btn btn-default" type="submit" value="Visualizza">
+    </form>
+    {% if img %}
+        <br>    
+        <img src="{{ img }}" alt="Grafico">
+    {% endif %}
+    {% if average %}
+        <br>    
+        <p>Media: {{ average }}</p>
+    {% endif %}
+    {% if median %}
+        <br>
+        <p>Mediana: {{ median }}</p>
+    {% endif %}
+    {% if mode %}
+        <br>
+        <p>Moda: {{ mode }}</p>
+    {% endif %}
+    {% if error %}
+        <br>
+        <p>{{ error }}</p>
+    {% endif %}
+</body>

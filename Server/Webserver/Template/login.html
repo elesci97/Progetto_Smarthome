@@ -1,0 +1,18 @@
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <form action="" method="post", class="login-page">
+    <h1>Login</h1>
+    <input type="text" placeholder="Username" name="username" value="{{
+        request.form.username }}">
+      <input type="password" placeholder="Password" name="password" value="{{
+        request.form.password }}">
+      <br>
+        <input class="btn btn-default" type="submit" value="Login">
+    </form>
+    {% if error %}
+      <p style="color: red">{{ error }}</p>
+    {% endif %}
+</body>
