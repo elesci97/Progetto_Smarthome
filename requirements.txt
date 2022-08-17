@@ -1,0 +1,11 @@
+configparser
+pandas
+paho-mqtt
+pymysql
+pandarallel
+flask
+matplotlib
+statistics
+telethon
+
+
