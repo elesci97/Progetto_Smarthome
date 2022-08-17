@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
